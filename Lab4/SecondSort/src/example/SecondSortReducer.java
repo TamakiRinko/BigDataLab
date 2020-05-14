@@ -10,6 +10,7 @@ public class SecondSortReducer extends Reducer<IntPair, NullWritable, IntPair, N
     @Override
     protected void reduce(IntPair key, Iterable<NullWritable> values, Context context) throws IOException, InterruptedException {
         for (NullWritable value : values) {
+            // 直接输出结果即可
             context.write(key, NullWritable.get());
         }
     }

@@ -25,12 +25,12 @@ public class SecondSortMain {
         job.setMapperClass(SecondSortMapper.class);
         job.setMapOutputKeyClass(IntPair.class);
         job.setMapOutputValueClass(NullWritable.class);
-        job.setPartitionerClass(SecondSortPartitioner.class);
+//        job.setPartitionerClass(SecondSortPartitioner.class);
         job.setReducerClass(SecondSortReducer.class);
-        job.setNumReduceTasks(10);
+        job.setNumReduceTasks(1);
         job.setOutputKeyClass(IntPair.class);
         job.setOutputValueClass(NullWritable.class);
-        job.setGroupingComparatorClass(SecondSortComparator.class);
+//        job.setGroupingComparatorClass(SecondSortComparator.class);
         FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
         FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
         System.exit(job.waitForCompletion(true)?0:1);
